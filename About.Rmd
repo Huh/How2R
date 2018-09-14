@@ -1,0 +1,9 @@
+---
+title: "About"
+author: "Josh Nowak"
+date: "September 14, 2018"
+output: html_document
+---
+
+
+Stuff
