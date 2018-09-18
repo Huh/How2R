@@ -12,7 +12,7 @@ navbar:
         - text: "Package First Workflow"
           href: packages.html
     - text: "About"
-      href: about.html
+      href: About.html
 output:
   html_document:
     theme: flatly
