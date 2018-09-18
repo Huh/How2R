@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+
+<meta name="author" content="Josh Nowak" />
+
+
+<title></title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/flatly.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+</head>
+
+<body>
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 60px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+
+.section h2 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.section h3 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.section h4 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.section h5 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.section h6 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+
+<div class="container-fluid main-container">
+
+<!-- tabsets -->
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+</script>
+
+<!-- code folding -->
+
+
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">How2R</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Home</a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Articles
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="git_rstudio.html">git + GitHub + Rstudio</a>
+    </li>
+    <li>
+      <a href="packages.html">Package First Workflow</a>
+    </li>
+  </ul>
+</li>
+<li>
+  <a href="about.html">About</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+
+</div>
+
+
+<div id="motivation" class="section level2">
+<h2>Motivation</h2>
+<p>We want to write clean, reusable, version controlled code that will be useful now and in the future. Before we get started down this path we will need to setup RStudio, Git and GitHub.</p>
+</div>
+<div id="prerequisites" class="section level2">
+<h2>Prerequisites</h2>
+<p>I assume that you are using the RStudio IDE and write from the perspective of a Windows user. If you choose to use another editor or operating system…YMMV.</p>
+</div>
+<div id="sources" class="section level2">
+<h2>Sources</h2>
+<ul>
+<li><a href="https://git-scm.com/">git</a></li>
+<li><a href="http://happygitwithr.com/">Happy Git and GitHub for the useR</a></li>
+<li><a href="http://usethis.r-lib.org/index.html">usethis package documentation</a></li>
+</ul>
+</div>
+<div id="installation-and-setup" class="section level2">
+<h2>Installation and Setup</h2>
+<div id="git" class="section level3">
+<h3>Git</h3>
+<p>You will need to install Git in order for your package to be version controlled. You can download Git from <a href="https://git-scm.com/">this link</a>. Happy Git provides some direction and if you have trouble you might try <a href="http://happygitwithr.com/install-git.html">Chapter 7</a>.</p>
+</div>
+<div id="github" class="section level3">
+<h3>GitHub</h3>
+<p>Everybody needs a GitHub account. GitHub, or <a href="https://about.gitlab.com/">gitlab</a>, provide an online companion to Git. Functionally these services ease collaboration, provide a means of backing up your work and help you show off your chops. There is much to learn and many benefits of these services. The learning curve is well worth the pain, but recognize it is a process and you will not master it in a week’s time. Luckily, accounts are free and relatively painless to create. To begin navigate to <a href="https://github.com/">GitHub</a> and <em>click</em> on the Sign up button at the top-right of your screen. Instructions for creating an account can be found <a href="http://www.wikihow.com/Create-an-Account-on-GitHub">here</a>. If you prefer short videos (0:56 seconds) you might find this <a href="https://www.youtube.com/watch?v=ezxRcdJ8glM">link</a> helpful.</p>
+<p><em>A quick note: many students have difficulty distinguishing Git from GitHub, the main difference that seems to help is that Git is on your computer and GitHub is on the internet, not your machine</em></p>
+</div>
+<div id="rstudio-to-git-connection" class="section level3">
+<h3>RStudio to Git Connection</h3>
+<p>The first connection we need to establish is that from Git to RStudio. To do this open RStudio and click on Tools &gt; Global Options &gt; Git/SVN. Now you should be presented with the following window:</p>
+<hr />
+<div class="figure">
+<img src="imgs/RStudio_setup_git_exe.png" alt="Click on Browse to set the location of your Git executable (git.exe)" />
+<p class="caption">Click on Browse to set the location of your Git executable (git.exe)</p>
+</div>
+<hr />
+<p>Click on Browse and navigate to where the Git executable was installed on your machine. You can see the location of my executable in the image. Click ok to exit the window when you are finished. Did it work? The following tests are cute, but not fool proof and will not necessarily guarantee everything is setup perfectly.</p>
+<ol style="list-style-type: decimal">
+<li>File &gt; New Project…</li>
+<li>Version Control</li>
+<li>Git</li>
+<li>Cancel</li>
+</ol>
+<p>If at this point no errors appear and RStudio allows you to enter the repository URL and other information your setup is most likely ready to go. However, if the above steps worked you should also be able to:</p>
+<ol style="list-style-type: decimal">
+<li>File &gt; New Project…</li>
+<li>This time choose New Directory instead of Version Control</li>
+<li>Select New Project</li>
+<li>An option should exist for <em>Create a git repository</em></li>
+<li>Cancel</li>
+</ol>
+<p>If all of that was successful then RStudio probably thinks it knows how to communicate with Git on your local machine. If the above failed to provide a connection try this article from <a href="https://support.rstudio.com/hc/en-us/articles/200532077-Version-Control-with-Git-and-SVN">RStudio</a> or chapter 13 in <a href="http://happygitwithr.com/rstudio-git-github.html">Happy Git</a>.</p>
+</div>
+<div id="configure-git" class="section level3">
+<h3>Configure Git</h3>
+<p>This section borrows heavily from: <a href="http://usethis.r-lib.org/articles/articles/usethis-setup.html">usethis setup page</a></p>
+<p>After Git is installed you need to tell Git who you are. Following the setup information for usethis we see we can use the helper function <code>usethis::use_git_config</code>.</p>
+<pre class="r"><code>library(usethis)
+#  Set your user.name and email
+use_git_config(user.name = &quot;who.dis&quot;, user.email = &quot;who.dis@newphone.com&quot;)
+
+#  Did something happen?
+use_git_config()</code></pre>
+<p>In the above code replace <code>who.dis</code> with your name and <code>who.dis@newphone.com</code> with your email. As the usethis documentation suggests, your username can be anything, such as your GitHub username or perhaps you first and last name. The work you do will be labelled with this name, so give it a little thought. The email you provide should be the same email you used for GitHub.</p>
+</div>
+<div id="github-to-rstudio-connection" class="section level3">
+<h3>GitHub to RStudio Connection</h3>
+<p>We just finished setting up the RStudio to Git connection, which is completely within your computer. Now we need to setup the connection from RStudio on your computer to GitHub on the internet. We will do this via a Personal Access Token (PAT). GitHub has a mechanism for creating these, but instead of reinventing the wheel hows about we use the amazing <code>usethis</code> package again. In your RStudio console, type the following…</p>
+<pre class="r"><code>library(usethis)
+browse_github_pat()</code></pre>
+<p>Calling this function will open a webpage where you will be presented with a prefilled form. The form is requesting a token from GitHub. The token, in loose words, is used to create a very secret handshake between GitHub and your computer. Once this handshake is established, GitHub can verify that it is you and allows you to make changes to your repositories.</p>
+<p>Security is a real issue that we don’t deal with often in the wildife field, but we need to learn a bit to keep safe. The key we are generating needs to be stored somewhere and it should be a safe place. I hope it is obvious that we <em>do not</em> want to store passwords, keys or other credentials in our R code. For this reason we look for safer means of storing this information. Hadley Wickham published <a href="https://cran.r-project.org/web/packages/httr/vignettes/secrets.html">a nice vignette</a> for the <code>httr</code> package that discusses options for storing secrets. What you need to know right now is that we are going to store our key as an environmental variable. Much like our Rprofile, our Renviron file is loaded when we first start R and so is available via <code>Sys.getenv()</code>. Enough, after you created your key copy it to your clipboard and transistion back to RStudio. In your RStudio console type:</p>
+<pre class="r"><code>library(usethis)
+edit_r_environ()</code></pre>
+<p>If this is your first time editing this file you may see a blank file open in RStudio. At this point go ahead and add</p>
+<pre class="r"><code>GITHUB_PAT=Put your PAT here without quotes</code></pre>
+<p>It is important that this file ends with a new line, so hit enter after you paste in your PAT. Remember that I said that the environmental variables are only loaded when you first start R? If you want your changes to take effect click on Session &gt; Restart R and then type</p>
+<pre class="r"><code>Sys.getenv(&quot;GITHUB_PAT&quot;)</code></pre>
+<p>The value printed to your console should be your PAT.</p>
+</div>
+<div id="rstudio-to-git-to-github" class="section level3">
+<h3>RStudio to Git to GitHub</h3>
+<p>At this point everything should be hooked up and communicating. The next steps for defining our ideal workflow are contained in the <a href="dave.com">Package First Workflow</a> article.</p>
+</div>
+</div>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

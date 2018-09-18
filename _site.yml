@@ -6,8 +6,10 @@ navbar:
       href: index.html
     - text: "Articles"
       menu:
-        - text: "First R Package"
-          href: first-package.html
+        - text: "git + GitHub + Rstudio"
+          href: git_rstudio.html
+        - text: "Package First Workflow"
+          href: packages.html
     - text: "About"
       href: about.html
 output:

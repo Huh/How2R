@@ -1,9 +1,37 @@
 ---
-title: "About"
-author: "Josh Nowak"
-date: "September 14, 2018"
+title: ""
+author: ""
 output: html_document
 ---
 
+<center>
+  <img src = "./imgs/SG_Horizontal_Transparent_RGB.png">
+</center>
 
-Stuff
+<br>
+
+## Josh
+
+I am a research scientist in the Wildlife Biology program at the University of Montana.  I could be described as a data scientist who collaborates with state and provincial wildlife agencies.  My role is to help refine wildlife monitoring programs, write statistical models that make sense of hard-earned data and develop web based user interfaces that make data accessible and workflows transparent. 
+
+## SpeedGoat
+
+SpeedGoat is a one-stop shop for maximizing information gained from data. We listen to wildlife professionals so we can build customized tools that provide the information needed to make difficult decisions, automate tedious tasks and defend management actions. We emphasize data accessibility, transparency and repeatable analyses.
+
+## People
+
+[About Us...](https://www.speedgoat.io/story/)
+
+Website:
+
+[www.speedgoat.io](www.speedgoat.io)
+
+Emails:
+
+<a href="mailto:josh.nowak@speedgoat.io?Subject=PopR%20again" target="_top">josh.nowak@speedgoat.io</a> 
+
+GitHub handles: 
+
+Josh: [Huh](https://github.com/Huh)
+
+<br>

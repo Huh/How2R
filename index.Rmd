@@ -1,29 +1,17 @@
 ---
-title: "Home"
-author: "Josh Nowak"
+title: ""
+author: ""
 output: html_document
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
+<center>
+  <img src = "./imgs/SG_Horizontal_Transparent_RGB.png">
+</center>
 
-## R Markdown
+<br>
 
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+This page contains a collection of documents from R group meetings at the University of Montana.  In addition, I have challenged myself to use this site to document solutions and resources for all the widely applicable questions asked of me during the semester.
 
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+A primary goal of this site is to encourage best practices and coherent workflows within R.  To that end, much of the material presented here sythesizes other, more pointed, documentation.
 
-```{r cars}
-summary(cars)
-```
-
-## Including Plots
-
-You can also embed plots, for example:
-
-```{r pressure, echo=FALSE}
-plot(pressure)
-```
-
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+Submit requests and issues to [Josh Nowak](https://github.com/Huh/How2R/issues)
