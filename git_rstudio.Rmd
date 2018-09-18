@@ -4,6 +4,8 @@ author: "Josh Nowak"
 output: html_document
 ---
 
+<br>
+
 ## Motivation
 
 We want to write clean, reusable, version controlled code that will be useful now and in the future.  Before we get started down this path we will need to setup RStudio, Git and GitHub.
@@ -109,5 +111,5 @@ The value printed to your console should be your PAT.
 
 ### RStudio to Git to GitHub
 
-At this point everything should be hooked up and communicating.  The next steps for defining our ideal workflow are contained in the [Package First Workflow](dave.com) article.
+At this point everything should be hooked up and communicating.  The next steps for defining our ideal workflow are contained in the [Package First Workflow](https://huh.github.io/How2R/packages.html) article.
 

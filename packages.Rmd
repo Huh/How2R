@@ -4,9 +4,11 @@ author: "Josh Nowak"
 output: html_document
 ---
 
+<br>
+
 # Workflow
 
-These notes are intended to provide a *brief* introduction to creating packages that are version controlled, documented and contain unit tests.  I do not go into detail about why we want these things and omit many other valuable features in the spirit of *walk before you run*.  My preferred workflow is detailed here and while it works for me it may not work for you.  If you wish to follow the workflow detailed here you will have to first make sure RStudio, Git and GitHub are all playing nice.  An article to help you with that is [linked here]().
+These notes are intended to provide a *brief* introduction to creating packages that are version controlled, documented and contain unit tests.  I do not go into detail about why we want these things and omit many other valuable features in the spirit of *walk before you run*.  My preferred workflow is detailed here and while it works for me it may not work for you.  If you wish to follow the workflow detailed here you will have to first make sure RStudio, Git and GitHub are all playing nice.  An article to help you with that is [linked here](https://huh.github.io/How2R/git_rstudio.html).
 
 ## Credit
 
