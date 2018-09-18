@@ -1,4 +1,5 @@
 name: "How2R"
+output_dir: "."
 navbar:
   title: "How2R"
   left:

@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+
+<meta name="author" content="Josh Nowak" />
+
+
+<title></title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/flatly.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+</head>
+
+<body>
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 60px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+
+.section h2 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.section h3 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.section h4 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.section h5 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.section h6 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+
+<div class="container-fluid main-container">
+
+<!-- tabsets -->
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+</script>
+
+<!-- code folding -->
+
+
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">How2R</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Home</a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Articles
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="git_rstudio.html">git + GitHub + Rstudio</a>
+    </li>
+    <li>
+      <a href="packages.html">Package First Workflow</a>
+    </li>
+  </ul>
+</li>
+<li>
+  <a href="about.html">About</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+
+</div>
+
+
+<div id="workflow" class="section level1">
+<h1>Workflow</h1>
+<p>These notes are intended to provide a <em>brief</em> introduction to creating packages that are version controlled, documented and contain unit tests. I do not go into detail about why we want these things and omit many other valuable features in the spirit of <em>walk before you run</em>. My preferred workflow is detailed here and while it works for me it may not work for you. If you wish to follow the workflow detailed here you will have to first make sure RStudio, Git and GitHub are all playing nice. An article to help you with that is <a href="">linked here</a>.</p>
+<div id="credit" class="section level2">
+<h2>Credit</h2>
+<p>The ideas in this document come from the writings and packages of the RStudio team. Most notable Hadley Wickham, Jenny Bryan and Jim Hester. These are good people to follow on GitHub and Twitter if you care to learn more about R and keep up to date on the <a href="https://blog.rstudio.com/">Rstudio</a> and <a href="https://www.tidyverse.org/">tidyverse</a> worlds.</p>
+</div>
+<div id="motivation" class="section level2">
+<h2>Motivation</h2>
+<p>We want to write clean, reusable and version controlled code that will be useful now and in the future. Here we describe one method of writing packages that streamlines this process and helps move us towards our goal. More thorough descriptions of the methods described herein are available at:</p>
+<ul>
+<li><a href="http://happygitwithr.com/">happygitwithr</a></li>
+<li><a href="http://r-pkgs.had.co.nz/">R packages</a></li>
+<li><a href="http://usethis.r-lib.org/index.html">usethis R package</a></li>
+</ul>
+<p>One difficulty with describing this process is that the workflow could start in several places. For example, we could start by creating a new repository on GitHub or we could begin by creating a package in RStudio. Either way is fine, but the trick is establishing a connection between your package, the RStudio project and git/GitHub. I typically choose to create repositories on GitHub first and then move to RStudio and clone the package into a new R project.</p>
+<div id="r-packages" class="section level3">
+<h3>R packages</h3>
+<p>Packages are the primary means of organizing code in R or as Hadley Wickham wrote in <a href="http://r-pkgs.had.co.nz/intro.html">R packages</a> “the fundamental unit of shareable code is the package”. They are easily shared, consistent in structure and suggest the use of best practices when coding (e.g. documentation and testing). In this introduction to coding and package writing we will rely on the following packages:</p>
+<ul>
+<li>devtools, makes package development easier
+<ul>
+<li><a href="https://devtools.r-lib.org/">devtools</a></li>
+</ul></li>
+<li>usethis, a workflow package that automates repetitive tasks
+<ul>
+<li><a href="http://usethis.r-lib.org/">usethis</a></li>
+</ul></li>
+<li>roxygen2, create help documentation for your functions, in the context of writing packages
+<ul>
+<li><a href="https://github.com/klutometis/roxygen">roxygen2</a></li>
+</ul></li>
+<li>testthat, test your code using testthat, these tests become part of your package
+<ul>
+<li><a href="http://testthat.r-lib.org/">testthat</a></li>
+</ul></li>
+<li>covr, track test coverage of, for example testthat
+<ul>
+<li><a href="https://covr.r-lib.org/">covr</a></li>
+</ul></li>
+</ul>
+<p>If you want to install all of these packages you can try:</p>
+<pre class="r"><code>  install.packages(
+    c(&quot;devtools&quot;, &quot;usethis&quot;, &quot;roxygen2&quot;, &quot;testthat&quot;, &quot;covr&quot;),
+    dependencies = T,
+    repos = &quot;https://cloud.r-project.org/&quot;
+  )</code></pre>
+<p>Rtools is companion software to R. I always install Rtools when changing versions of R and recommend that you install it as well. Just install it now…<a href="https://cran.r-project.org/bin/windows/Rtools/">the link is here</a>.</p>
+</div>
+</div>
+<div id="create-repository-on-github" class="section level2">
+<h2>Create Repository on GitHub</h2>
+<p>In this workflow we will start by creating a repository on GitHub and then proceed to copy it to our local machine. This is my preferred way of doing things because I don’t care about using the <code>usethis::use_git()</code>, <code>usethis::use_github()</code> and other helper functions to make sure I get the repository all setup the way I want. Anyway, to begin…</p>
+<ol style="list-style-type: decimal">
+<li>Login to GitHub</li>
+<li>Click on Repositories (while viewing your profile)</li>
+<li>Click on New</li>
+</ol>
+<hr />
+<div class="figure">
+<img src="imgs/create_repo_1.png" alt="Click on the New button in the red box to create a new repository" />
+<p class="caption">Click on the <em>New</em> button in the red box to create a new repository</p>
+</div>
+<hr />
+<ol start="4" style="list-style-type: decimal">
+<li>Fill in the blanks to name your repository, describe the repository, <a href="https://help.github.com/articles/licensing-a-repository/">define license</a> and add <a href="https://help.github.com/articles/about-readmes/">readme</a></li>
+</ol>
+<hr />
+<div class="figure">
+<img src="imgs/create_repo_2.png" alt="Name your repository, provide a description, license, readme, etc." />
+<p class="caption">Name your repository, provide a description, license, readme, etc.</p>
+</div>
+<hr />
+<ol start="5" style="list-style-type: decimal">
+<li>Click <em>Create repository</em></li>
+<li>Set yourself up to clone the repository to your personal computer (because GitHub is on the internet). Click on the green button <em>Clone or download</em> and then copy the url to your clipboard.</li>
+</ol>
+<hr />
+<div class="figure">
+<img src="imgs/create_repo_3.png" alt="Click on the Clone or download button and then copy the url to your clipboard by clicking on the symbol in the red circle." />
+<p class="caption">Click on the <em>Clone or download</em> button and then copy the url to your clipboard by clicking on the symbol in the red circle.</p>
+</div>
+<hr />
+<ol start="7" style="list-style-type: decimal">
+<li>Now open RStudio and proceed to the next section</li>
+</ol>
+</div>
+<div id="create-package-after-repository-is-created-on-github" class="section level2">
+<h2>Create Package (after repository is created on GitHub)</h2>
+<p>With the repository created we want to create an R package using the notion of a R project to help with working directories and the like.</p>
+<ol style="list-style-type: decimal">
+<li>Create a new project that is version controlled
+<ul>
+<li>File &gt; New Project &gt; Version Control &gt; git</li>
+</ul></li>
+<li>At this point you are presented with a screen asking for the URL of your GitHub repository, enter your URL (Ctrl + V) and define the location on your local machine where this directory should reside (e.g. on my Windows machine all GitHub repositories live under C:/Users/my.name/Documents/GitHub) and I find this a pretty nice file structure.</li>
+<li>RStudio will now open a new instance of the IDE and you will see a Git tab in the Environment window</li>
+<li>Call usethis::create_package(getwd())
+<ul>
+<li>RStudio may throw a warning saying a project already exists in this location. I tell RStudio to overwrite the old one and go on with my life.</li>
+</ul></li>
+</ol>
+</div>
+<div id="modify-and-update-code" class="section level2">
+<h2>Modify and Update Code</h2>
+<p>Now that the package is created we want to add code to it. The basic workflow is as follows:</p>
+<ol style="list-style-type: decimal">
+<li><code>usethis::use_r(&quot;foo&quot;)</code> to create a function in the package</li>
+<li>Modify the code in the newly created script</li>
+<li>Save your changes using Ctl + S</li>
+<li>Reload the package using Ctl + Shift + L, this will call <code>devtools::load_all()</code></li>
+<li>Continue to modify the function, save and reload the package until satisfied with your function</li>
+</ol>
+<p>It is important that we don’t source our code directly to the console (i.e. global environment). If we did source our code then our changes would not take effect and we would create a conflict between the package functions and the code loaded in the workspace. Use Ctl + Shift + L, your functions will be available, but will not appear in the Environment pane as objects, which is the desired effect.</p>
+<p>You may find this example simple and wonder if this approach will work for development of more complicated code. I tend to think if your code is that complicated perhaps you need to break it up into digestable chunks. That said, I could see developing line by line in another instance of RStudio, then wrapping that code in a function and finally adding that function to your package. I think for most folks this will be a cleaner way of getting started when you cannot just <em>see</em> the answer.</p>
+</div>
+<div id="documenting-code" class="section level2">
+<h2>Documenting Code</h2>
+<p>With a single function written we should now document that function.</p>
+<ol style="list-style-type: decimal">
+<li>Place your cursor inside the function and either press Ctl + Alt + Shift + R or click Code &gt; Insert Roxygen Skeleton</li>
+<li>This will insert basic building blocks for a help file, fill in the sections with informative, but concise sentences</li>
+<li>Once you have documented the function Ctl + S, Ctl + Shift + D to document and then Ctl + Shift + L to reload the package</li>
+<li>Now try out your documentation by typing ?foo (or ?your_function_name) in the Console, a help page should appear</li>
+</ol>
+<p>My code looks like</p>
+<pre class="r"><code>#&#39; A function to add 2
+#&#39;
+#&#39; @param x A numeric input of any length
+#&#39;
+#&#39; @return numeric equal in length to input x
+#&#39; @export
+#&#39;
+#&#39; @examples
+#&#39; foo(4)
+foo &lt;- function(x){
+  out &lt;- x + 2
+
+return(out)
+}</code></pre>
+<p>How should you document? What should you write? Do we document data? To answer these questions head on over to Hadley Wickham’s excellent book <a href="http://r-pkgs.had.co.nz/man.html">R packages</a>.</p>
+</div>
+<div id="test-code" class="section level2">
+<h2>Test Code</h2>
+<p>Our package code is now working and documented, but we haven’t really tested it yet, at least not formally.</p>
+<ol style="list-style-type: decimal">
+<li>Type <code>usethis::use_test()</code> in the console</li>
+<li>A new script will open and you can then create tests
+<ul>
+<li>For our foo function a test might look like</li>
+</ul></li>
+</ol>
+<pre class="r"><code>test_that(&quot;multiplication works&quot;, {
+  expect_equal(foo(2), 4)
+})
+
+test_that(&quot;failures matter&quot;, {
+  expect_error(foo(&quot;A&quot;))
+})</code></pre>
+<ol start="3" style="list-style-type: decimal">
+<li>When you have written your tests Ctl + S, Ctl + Shift + T</li>
+</ol>
+<p>While your tests are running you may notice a new window in the RStudio IDE. This is showing you the results of your test.</p>
+<p>For more information on testing your code try the documentation for <a href="http://testthat.r-lib.org/index.html">testthat</a> or the <a href="http://r-pkgs.had.co.nz/tests.html">tests chapter</a> in R packages.</p>
+<p>Now we have a package with a function that is version controlled, documented and tested.</p>
+</div>
+<div id="build-the-package" class="section level2">
+<h2>Build the Package</h2>
+<p>Because I am a bit OCD, I typically push all the buttons and build packages as follows:</p>
+<ol style="list-style-type: decimal">
+<li>Ctl + S</li>
+<li>Ctl + Shift + D, Document your package</li>
+<li>Ctl + Shift + T, Test your package</li>
+<li>Ctl + Shift + B, Build your package</li>
+</ol>
+<p>Congratulations, you have built your first package with version control, documentation and unit tests. That is great step toward better coding!</p>
+</div>
+<div id="share-with-the-world" class="section level2">
+<h2>Share with the world</h2>
+<p>Recall that this R project, which happens to be a package is also version controlled. If you look at GitHub it will have very little information. Where are my files you might ask. Well, they are on your local machine and because the changes have not(?) been committed even your local git doesn’t know the great work you have done. To tell git about the work we have done we need to stage and commit our changes. To tell GitHub about the changes we will also need to push the changes to GitHub. In RStudio we do this by:</p>
+<ol style="list-style-type: decimal">
+<li>Click on the Git tab</li>
+<li>Click on each of the boxes next to the changed files that you want to commit this will stage the changes</li>
+<li>Click on Commit</li>
+<li>Type an informative commit message and then click Commit</li>
+<li>With the commit made we have tracked the changes in the code locally (on your machine), but we also want these changes pushed to the web so that we can share with ourselves and the world, click Push =)
+<ul>
+<li>If your push fails because of changes on the GitHub version of your code then you will have to do some troubleshooting, see <a href="http://happygitwithr.com">happygitwithr</a></li>
+</ul></li>
+<li>Verify that your changes are now on GitHub, congrats!</li>
+<li>Bonus points, install your package with <code>devtools::install_github(&quot;ghub_username/pkg_name&quot;)</code></li>
+</ol>
+</div>
+</div>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
