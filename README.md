@@ -1,7 +1,7 @@
 # How2R
 
-Besides being a collection of documents from R group meetings at the University of Montana, I have challenged myself to add documents and resources for all the widely applicable questions asked of me during the semester.
+A collection of documents from R group meetings at the University of Montana.
 
-Much of the content here is something like a CliffsNotes version of the actual documentation, which is cited within the documents.
+Much of the content here is something like a CliffsNotes version of other documentation, which is cited within the documents.
 
 The site can be found at the following link: [https://huh.github.io/How2R/](https://huh.github.io/How2R/)
